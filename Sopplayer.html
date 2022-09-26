@@ -1,0 +1,19 @@
+<link href='https://cdn.jsdelivr.net/gh/SH20RAJ/Sopplayer/sopplayer.min.css' rel='stylesheet' />
+
+    <video id='my-video' class='sopplayer' controls preload='auto' data-setup='{}'  
+ height='340px' width='300px'>
+      <source src='https://www.googleapis.com/drive/v3/files/1A0KDvHW79nqiiVV4YeOA36Y6iMyNTd9W?alt=media&key=AIzaSyAUuMtiwAT4m6SmXcu7yWd-sWFLBtCROqA' type='video/mp4' />
+    </video>
+    <script src='https://cdn.jsdelivr.net/gh/SH20RAJ/Sopplayer/sopplayer.min.js'></script>
+<script>
+  let apikey = 'AIzaSyD739-eb6NzS_KbVJq1K8ZAxnrMfkIqPyw';
+  function getparam(a,e){return e||(e=window.location.href),new URL(e).searchParams.get(a)}
+
+let video = document.getElementById('player');
+  if(getparam('id')){
+    let json = JSON.parse(atob(getparam('id'))) ;
+    let driveid = json.id;
+    video.src = `https://www.googleapis.com/drive/v3/files/${driveid }?alt=media&key=${apikey}`;
+    video.poster = 'https://lh3.googleusercontent.com/d/'+driveid;
+  }
+</script>
